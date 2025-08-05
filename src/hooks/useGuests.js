@@ -4,11 +4,14 @@ export default function useGuests() {
   const [guestList, setGuestList] = useState([])
 
   useEffect(() => {
-    // 👉 HARD-CODED TEST DATA
-    setGuestList([
-      { id: 1, name: 'Test Guest', email: 'test@guest.com', phone: '555-1234' },
-      { id: 2, name: 'Demo Guest', email: 'demo@guest.com', phone: '555-5678' }
-    ])
+    fetch('https://fsa-crud-2aa9294fe819.herokuapp.com/api/guests')
+      .then((res) => res.json())
+      .then((payload) => {
+        console.log('Fetched guests payload:', payload)
+        const data = payload.data ?? payload
+        setGuestList(data)
+      })
+      .catch((err) => console.error('Failed to load guest list', err))
   }, [])
 
   return guestList

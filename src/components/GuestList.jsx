@@ -1,12 +1,11 @@
 import React from 'react'
 import useGuests from '../hooks/useGuests.js'
 
-export default function GuestList({ onSelect }) {
+export default function GuestList({ onSelectGuest }) {
+  const guestList = useGuests()
 
-  const guests = useGuests()
-  
-  if (guests.length === 0) {
-    return <p>Loading list</p>
+  if (guestList.length === 0) {
+    return <p>Loading guest list…</p>
   }
 
   return (
@@ -21,11 +20,11 @@ export default function GuestList({ onSelect }) {
           </tr>
         </thead>
         <tbody>
-          {guests.map((g) => (
-            <tr key={g.id} onClick={() => onSelect(g.id)}>
-              <td>{g.name}</td>
-              <td>{g.email}</td>
-              <td>{g.phone}</td>
+          {guestList.map((guest) => (
+            <tr key={guest.id} onClick={() => onSelectGuest(guest.id)}>
+              <td>{guest.name}</td>
+              <td>{guest.email}</td>
+              <td>{guest.phone}</td>
             </tr>
           ))}
         </tbody>

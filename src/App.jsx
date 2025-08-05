@@ -3,15 +3,24 @@ import GuestList from './components/GuestList.jsx'
 import GuestDetail from './components/GuestDetail.jsx'
 
 export default function App() {
-  const [selectedId, setSelectedId] = useState(null)
+  const [selectedGuestId, setSelectedGuestId] = useState(null)
+
+  const handleGuestSelect = (id) => {
+    setSelectedGuestId(id)
+  }
+
+  const handleBackToList = () => {
+    setSelectedGuestId(null)
+  }
 
   return (
     <div className="container">
-      {selectedId === null ? (
-        <GuestList onSelect={setSelectedId} />
+      {selectedGuestId === null ? (
+        <GuestList onSelectGuest={handleGuestSelect} />
       ) : (
-        <GuestDetail id={selectedId} onBack={() => setSelectedId(null)} />
+        <GuestDetail guestId={selectedGuestId} onBack={handleBackToList} />
       )}
     </div>
   )
 }
+

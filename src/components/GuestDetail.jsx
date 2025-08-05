@@ -1,21 +1,20 @@
 import React from 'react'
 import useGuest from '../hooks/useGuest.js'
 
-export default function GuestDetail({ id, onBack }) {
+export default function GuestDetail({ guestId, onBack }) {
+  const guestDetails = useGuest(guestId)
 
-  const guest = useGuest(id)
-  
-  if (!guest) {
-    return <p>Loading details</p>
+  if (!guestDetails) {
+    return <p>Loading guest details…</p>
   }
 
   return (
     <div className="detail-container">
-      <h1>Guest Detail</h1>
-      <p><strong>Name:</strong> {guest.name}</p>
-      <p><strong>Email:</strong> {guest.email}</p>
-      <p><strong>Phone:</strong> {guest.phone}</p>
-      <p><strong>Address:</strong> {guest.address}</p>
+      <h1>{guestDetails.name}</h1>
+      <p><strong>Email:</strong> {guestDetails.email}</p>
+      <p><strong>Phone:</strong> {guestDetails.phone}</p>
+      <p><strong>Job:</strong> {guestDetails.job}</p>
+      <p><strong>Bio:</strong> {guestDetails.bio}</p>
       <button onClick={onBack}>Back to list</button>
     </div>
   )
