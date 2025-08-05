@@ -6,7 +6,7 @@ export default function useGuest(guestId) {
   useEffect(() => {
     if (!guestId) return
 
-    fetch(`https://fsa-crud-2aa9294fe819.herokuapp.com/api/guests/${guestId}`)
+    fetch(`https://fsa-crud-2aa9294fe819.herokuapp.com/api/2aa9294fe819/guests/${guestId}`)
       .then((res) => res.json())
       .then((payload) => {
         console.log('Fetched guest payload:', payload)

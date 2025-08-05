@@ -4,7 +4,7 @@ export default function useGuests() {
   const [guestList, setGuestList] = useState([])
 
   useEffect(() => {
-    fetch('https://fsa-crud-2aa9294fe819.herokuapp.com/api/guests')
+    fetch('https://fsa-crud-2aa9294fe819.herokuapp.com/api/2aa9294fe819/guests')
       .then((res) => res.json())
       .then((payload) => {
         console.log('Fetched guests payload:', payload)
