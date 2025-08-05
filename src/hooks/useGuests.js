@@ -1,12 +1,15 @@
 import { useState, useEffect } from 'react'
 
 export default function useGuests() {
-  const [guests, setGuests] = useState([])
+  const [guestList, setGuestList] = useState([])
+
   useEffect(() => {
-     fetch('https://fsa-crud-2aa9294fe819.herokuapp.com/api/guests')
-      .then((res) => res.json())
-      .then((data) => setGuests(data))
-      .catch((err) => console.error('Error loading guests', err))
+    // 👉 HARD-CODED TEST DATA
+    setGuestList([
+      { id: 1, name: 'Test Guest', email: 'test@guest.com', phone: '555-1234' },
+      { id: 2, name: 'Demo Guest', email: 'demo@guest.com', phone: '555-5678' }
+    ])
   }, [])
-  return guests
+
+  return guestList
 }
