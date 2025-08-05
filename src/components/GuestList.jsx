@@ -1,5 +1,5 @@
 import React from 'react'
-import useGuests from '.../hooks/useGuests.js'
+import useGuests from '../hooks/useGuests.js'
 
 export default function GuestList({ onSelect }) {
 

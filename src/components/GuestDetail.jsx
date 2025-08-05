@@ -1,5 +1,5 @@
 import React from 'react'
-import useGuest from './hooks/useGuest.js'
+import useGuest from '../hooks/useGuest.js'
 
 export default function GuestDetail({ id, onBack }) {
 
