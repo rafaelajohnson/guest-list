@@ -1,9 +1,9 @@
 import React from 'react'
-import useGuest from '.../hooks/useGuests.js'
+import useGuests from '.../hooks/useGuests.js'
 
 export default function GuestList({ onSelect }) {
 
-  const guests = useGuest()
+  const guests = useGuests()
   
   if (guests.length === 0) {
     return <p>Loading list</p>
