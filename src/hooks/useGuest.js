@@ -1,6 +1,6 @@
 import { useState, useEffect} from 'react'
 
-export defaul function useGuest(id) {
+export default function useGuest(id) {
     const [guest, setGuest] = useState(null)
     useEffect(() => {
         if (!id) return
